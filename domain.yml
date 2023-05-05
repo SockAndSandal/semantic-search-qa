@@ -1,13 +1,41 @@
-version: '2.0'
-config:
-  store_entities_as_slots: true
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
-intents: []
-entities: []
-slots: {}
-responses: {}
-actions: []
-forms: {}
-e2e_actions: []
+intents:
+- find_file
+
+slots:
+  file_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: file_name  
+  folder_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: folder_name
+
+entities:
+- file_name
+- folder_name
+
+actions:
+- action_find_file
+- action_handle_error
+
+responses:
+  utter_greet:
+  - text: "Hello! How can I help you today?"
+
+  utter_goodbye:
+  - text: "Goodbye!"
+
+  utter_file_found:
+  - text: "The file {file_name} is located at {file_path}"
+
+  utter_file_not_found:
+  - text: "Sorry, I couldn't find the file {file_name} in the folder {folder_name}"
+
+  utter_folder_not_found:
+  - text: "Sorry, I couldn't find the folder {folder_name}"
+  
+  utter_search_error:
+  - text: "Sorry, an error occurred while searching for the {file_name} file in the {folder_name} folder."
