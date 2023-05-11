@@ -12,10 +12,17 @@ slots:
     mappings:
     - type: from_entity
       entity: folder_name
+  time_period:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: time_period
 
 entities:
 - file_name
 - folder_name
+- time_period
+
 
 actions:
 - action_find_file

@@ -11,3 +11,34 @@ rules:
 #   steps:
 #   - intent: bot_challenge
 #   - action: utter_iamabot
+
+- rule: Find recently modified file rule
+  steps:
+  - intent: find_recently_modified_file
+  - action: action_find_recently_modified_file
+
+- rule: Find recently opened files rule
+  steps:
+  - intent: find_recently_opened_files
+  - action: action_find_recently_opened_files
+
+- rule: Find recently created files rule
+  steps:
+  - intent: find_recently_created_files
+  - action: action_find_recently_created_files
+
+- rule: Find recently opened forms rule
+  steps:
+  - intent: find_recently_opened_forms
+  - action: action_find_recently_opened_forms
+
+- rule: Find recently opened scientific publications rule
+  steps:
+  - intent: find_recently_opened_scientific_publications
+  - action: action_find_recently_opened_scientific_publications
+
+- rule: Find file by time period rule
+  steps:
+  - intent: find_file_by_time_period
+  - action: action_find_file_by_time_period
+

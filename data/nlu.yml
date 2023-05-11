@@ -9,3 +9,46 @@ nlu:
     - Locate file named {file_name} in folder {folder_name}
     - Find {file_name} inside folder {folder_name}
     - Look for {file_name} in the {folder_name} directory
+
+- intent: find_recently_modified_file
+  examples: |
+    - find me the most recently modified file from the {folder_name} folder
+    - show me the last modified file in the {folder_name} directory
+    - which file was edited last in the {folder_name} folder?
+    - get me the latest updated file from the {folder_name} folder
+
+- intent: find_recently_opened_files
+  examples: | 
+    - show me recently opened files
+    - which files were opened recently?
+    - display the last opened files
+    - list the files I opened recently
+
+- intent: find_recently_created_files
+  examples: | 
+    - show me recently created files
+    - which files were created recently?
+    - display the last created files
+    - show me the newest file 
+    - list the files I created recently
+
+- intent: find_recently_opened_forms
+  examples: |
+  - show me recently opened forms
+  - which forms were opened recently?
+  - display the last opened forms
+  - list the forms I opened recently
+
+- intent: find_recently_opened_scientific_publications
+  examples: |
+  - show me recently opened scientific publications
+  - which scientific publications were opened recently?
+  - display the last opened scientific publications
+  - list the scientific publications I opened recently
+
+- intent: find_file_createdon_date
+  examples: |
+    - find document created last month
+    - fetch a form created in the first week of May
+    - 
+
