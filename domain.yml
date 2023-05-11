@@ -1,5 +1,12 @@
 intents:
 - find_file
+- find_recently_modified_file
+- find_recently_opened_files
+- find_recently_created_files
+- find_recently_opened_forms
+- find_recently_opened_scientific_publications
+- find_file_createdon_date
+- find_number_of_files_by_format
 
 slots:
   file_name:
@@ -17,16 +24,29 @@ slots:
     mappings:
     - type: from_entity
       entity: time_period
+  file_format:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: file_format
 
 entities:
 - file_name
 - folder_name
 - time_period
+- file_format
 
 
 actions:
 - action_find_file
 - action_handle_error
+- action_find_recently_modified_file
+- action_find_recently_opened_files
+- action_find_recently_created_files
+- action_find_recently_opened_forms
+- action_find_recently_opened_scientific_publications
+- action_find_file_by_time_period
+- action_find_number_of_files_by_format
 
 responses:
   utter_greet:

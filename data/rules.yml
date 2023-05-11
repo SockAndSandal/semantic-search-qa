@@ -42,3 +42,7 @@ rules:
   - intent: find_file_by_time_period
   - action: action_find_file_by_time_period
 
+- rule: Find number of files in a given format
+  steps:
+  - intent: find_number_of_files_by_format
+  - action: action_find_number_of_files_by_format

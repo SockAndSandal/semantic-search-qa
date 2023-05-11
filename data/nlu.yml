@@ -13,13 +13,16 @@ nlu:
 - intent: find_recently_modified_file
   examples: |
     - find me the most recently modified file from the {folder_name} folder
-    - show me the last modified file in the {folder_name} directory
+    - which file was modified recently in the {folder_name} folder?
     - which file was edited last in the {folder_name} folder?
+    - show me the last modified file in the {folder_name} directory
     - get me the latest updated file from the {folder_name} folder
 
 - intent: find_recently_opened_files
   examples: | 
     - show me recently opened files
+    - show me all my recently opened files
+    - recent files
     - which files were opened recently?
     - display the last opened files
     - list the files I opened recently
@@ -52,3 +55,43 @@ nlu:
     - fetch a form created in the first week of May
     - 
 
+- intent: find_number_of_files_by_format
+  examples: |
+    - how many {pdf} files do I have?
+    - how many {docx} files are there?
+    - how many {xlsx} files are there?
+    - how many {pptx} files are there?
+    - how many {jpg} files are there?
+    - how many {png} files are there?
+    - tell me the number of {pdf} files
+    - tell me the number of {docx} files
+    - tell me the number of {xlsx} files
+    - tell me the number of {pptx} files
+    - tell me the number of {jpg} files
+    - how many {png} files are on my system?
+    - how many {pdf} files are on my system?
+    - how many {docx} files are on my system?
+    - are there any {pdf} files on my system?
+    - are there any {docx} files on my system?
+    - are there any {xlsx} files on my system?
+    - are there any {pptx} files on my system?
+    - are there any {jpg} files on my system?
+    - are there any {png} files on my system?
+    - find if there are any {pdf} files
+    - find if there are any {docx} files
+    - find if there are any {xlsx} files
+    - find if there are any {pptx} files
+    - find if there are any {jpg} files
+    - find if there are any {png} files
+    - Could you tell me if there are any {png} files?
+    - Could you tell me if there are any {pdf} files?
+    - Could you tell me if there are any {docx} files?
+    - Could you tell me if there are any {xlsx} files?
+    - Could you tell me if there are any {pptx} files?
+    - Could you tell me if there are any {jpg} files?
+    - Can you locate any {png} files?
+    - Can you locate any {pdf} files?
+    - Can you locate any {docx} files?
+    - Can you locate any {xlsx} files?
+    - Can you locate any {pptx} files?
+    - Can you locate any {jpg} files?

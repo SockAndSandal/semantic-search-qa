@@ -137,7 +137,9 @@ class ActionFindRecentlyOpenedPublications(Action):
     def name(self) -> str:
         return "action_find_recently_opened_scientific_publications"
 
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    async def run(self, dispatcher: CollectingDispatcher, 
+                  tracker: Tracker, 
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         #type wise classification
 
         if publications:
@@ -155,11 +157,12 @@ class ActionFindFormsByTimePeriod(Action):
     def name(self) -> str:
         return "action_find_forms_by_time_period"
 
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    async def run(self, dispatcher: CollectingDispatcher, 
+                  tracker: Tracker, 
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Get the extracted entities
         form_action = tracker.get_slot("form_action")
         time_period = tracker.get_slot("time_period")
-
 
         # Retrieve the requested forms based on the extracted entities
         # If forms are found, display them in a formatted response
@@ -173,4 +176,30 @@ class ActionFindFormsByTimePeriod(Action):
         else:
             dispatcher.utter_message(f"No forms were found that you {form_action} {time_period}.")
 
+        return []
+
+def find_number_of_files_by_format(file_format):
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "password"))
+    with driver.session() as session:
+        # Find the number of files in the given format
+        result = session.run("MATCH (file:File) WHERE file.format = $format RETURN count(file)", format=file_format)
+        number = result.single().get("count(file)")
+
+    return number
+
+class ActionFindNumberofFilesbyFormat(Action):
+    def name(self) -> str:
+        return "action_find_number_of_files_by_format"
+
+    async def run(self, dispatcher: CollectingDispatcher, 
+                  tracker: Tracker, 
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Get the extracted entities
+        file_format = tracker.get_slot("file_format")
+        number = find_number_of_files_by_format(file_format)
+        if number == 0:
+            dispatcher.utter_message(f"No files were found in {file_format} format.")
+        else:
+            response = f"The number of files in {file_format} format are {number}:\n"
+            dispatcher.utter_message(response)
         return []

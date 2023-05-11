@@ -50,3 +50,12 @@ stories:
     - folder_name: "sales"
   - action: action_handle_error
   - action: utter_search_error
+
+- story: find_number_of_files_by_format
+  steps:
+  - intent: find_number_of_files_by_format
+    entities:
+    - file_format: "pdf"
+  - slot_was_set:
+    - file_format: "pdf"
+  - action: action_find_number_of_files_by_format
