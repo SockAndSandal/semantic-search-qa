@@ -1,6 +1,4 @@
-# README.md
-
-This repository contains code for a project that involves a middleware, an active checker script, and a RASA server. Follow the instructions below to set up and run the project.
+# Semantic Search for Local Filesystem
 
 ## Prerequisites
 
