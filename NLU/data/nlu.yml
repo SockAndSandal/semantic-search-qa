@@ -1,0 +1,198 @@
+version: "3.1"
+
+nlu:
+
+- intent: find_file
+  examples: |
+    - Find file [file_name](file_name) in folder [folder_name](folder_name)
+    - Search for [file_name](file_name) in [folder_name](folder_name)
+    - Locate file named [file_name](file_name) in folder [folder_name](folder_name)
+    - Find [file_name](file_name) inside folder [folder_name](folder_name)
+    - Look for [file_name](file_name) in the [folder_name](folder_name) directory
+    - Find file [file_name](file_name)
+    - Search for [file_name](file_name)
+    - Locate file named [file_name](file_name)
+    - Find [file_name](file_name)
+    - Look for [file_name](file_name)
+    - get me [file_name](file_name)
+    - Find file [document.docx](file_name) in folder [documents](folder_name)
+    - Search for [presentation.pptx](file_name) in [presentations](folder_name) folder
+    - Locate file named [image.jpg](file_name) in folder [images](folder_name)
+    - Find [data.csv](file_name) inside folder [data_files](folder_name)
+    - Look for [report.pdf](file_name) in the [reports](folder_name) directory
+    - Find file [proposal.docx](file_name)
+    - Search for [spreadsheet.xlsx](file_name)
+    - Locate file named [picture.jpg](file_name)
+    - Find [notes.txt](file_name)
+    - Look for [invoice.pdf](file_name)
+    - Get me [presentation.pptx](file_name)
+    - Find file [document.docx](file_name) in folder [documents](folder_name)
+    - Search for [presentation](file_name) in [presentations](folder_name) folder
+    - Locate file named [image](file_name) in folder [images](folder_name)
+    - Find [data](file_name) inside folder [data_files](folder_name)
+    - Look for [report](file_name) in the [reports](folder_name) directory
+    - Find file [proposal](file_name)
+    - Search for [spreadsheet](file_name)
+    - Locate file named [picture](file_name)
+    - Find [notes](file_name)
+    - Look for [invoice](file_name)
+    - Get me [presentation](file_name)
+    - [a-zA-Z0-9_-]+\.(txt|docx|pdf|pptx|xlsx|jpg|png|csv)
+    - get me [a-zA-Z0-9_-]+\.(txt|docx|pdf|pptx|xlsx|jpg|png|csv)
+    - Look for [a-zA-Z0-9_-]+\.(txt|docx|pdf|pptx|xlsx|jpg|png|csv)
+
+- intent: provide_file_name
+  examples: |
+    - The file name is [file_name](file_name)
+    - It's called [file_name](file_name)
+    - The name of the file is [file_name](file_name)
+    - The file is named [file_name](file_name)
+    - [file_name](file_name)
+    - It's [file_name](file_name)
+    - The file name is [document.docx](file_name)
+    - It's called [presentation.pptx](file_name)
+    - The name of the file is [image.jpg](file_name)
+    - The file is named [data.csv](file_name)
+    - [report.pdf](file_name)
+    - It's [proposal.docx](file_name)
+    - The file name is [spreadsheet.xlsx](file_name)
+    - It's called [picture.jpg](file_name)
+    - The name of the file is [notes.txt](file_name)
+    - The file is named [invoice.pdf](file_name)
+    - [presentation.pptx](file_name)
+    - It's [document.docx](file_name)
+    - The file name is [presentation](file_name)
+    - It's called [image](file_name)
+    - The name of the file is [data](file_name)
+    - The file is named [report](file_name)
+    - [proposal](file_name)
+    - It's [spreadsheet](file_name)
+    - The file name is [picture](file_name)
+    - It's called [notes](file_name)
+    - The name of the file is [invoice](file_name)
+    - The file is named [presentation](file_name)
+
+- intent: nlu_fallback
+  examples: |
+    - find similar files
+    - return similar files
+    - get pdf files created last week
+    - get pdf files that are of document type scientific publications
+    - get similar files
+    - get files that were created last friday
+    - get files that were modified 2 days back
+    - files modified 2 days back
+    - get me docx modified yesterday
+    - what is the page count of the current file
+    - files similar to current file
+    - number of pages in the current file
+    - what are the available document types
+
+- intent: find_recently_modified_file
+  examples: |
+    - find me the most recently modified file from the {folder_name} folder
+    - which file was modified recently in the {folder_name} folder?
+    - which file was edited last in the {folder_name} folder?
+    - show me the last modified file in the {folder_name} directory
+    - get me the latest updated file from the {folder_name} folder
+
+- intent: find_recently_opened_files
+  examples: | 
+    - show me recently opened files
+    - show me all my recently opened files
+    - recent files
+    - which files were opened recently?
+    - display the last opened files
+    - list the files I opened recently
+
+- intent: find_recently_created_files
+  examples: | 
+    - show me recently created files
+    - which files were created recently?
+    - display the last created files
+    - show me the newest file 
+    - list the files I created recently
+
+- intent: find_recently_opened_forms
+  examples: |
+    - show me recently opened forms
+    - which forms were opened recently?
+    - display the last opened forms
+    - list the forms I opened recently
+
+- intent: find_recently_opened_scientific_publications
+  examples: |
+    - show me recently opened scientific publications
+    - which scientific publications were opened recently?
+    - display the last opened scientific publications
+    - list the scientific publications I opened recently
+
+- intent: find_file_createdon_date
+  examples: |
+    - find document created last month
+    - fetch a form created in the first week of May
+
+- intent: find_number_of_files_by_format
+  examples: |
+    - how many [pdf](file_format) files do I have?
+    - how many [docx](file_format) files are there?
+    - how many [xlsx](file_format) files are there?
+    - how many [pptx](file_format) files are there?
+    - how many [jpg](file_format) files are there?
+    - how many [png](file_format) files are there?
+    - tell me the number of [pdf](file_format) files
+    - tell me the number of [docx](file_format) files
+    - tell me the number of [xlsx](file_format) files
+    - tell me the number of [pptx](file_format) files
+    - tell me the number of [jpg](file_format) files
+    - how many [png](file_format) files are on my system?
+    - how many [pdf](file_format) files are on my system?
+    - how many [docx](file_format) files are on my system?
+    - are there any [pdf](file_format) files on my system?
+    - are there any [docx](file_format) files on my system?
+    - are there any [xlsx](file_format) files on my system?
+    - are there any [pptx](file_format) files on my system?
+    - are there any [jpg](file_format) files on my system?
+    - are there any [png](file_format) files on my system?
+    - find if there are any [pdf](file_format) files
+    - find if there are any [docx](file_format) files
+    - find if there are any [xlsx](file_format) files
+    - find if there are any [pptx](file_format) files
+    - find if there are any [jpg](file_format) files
+    - find if there are any [png](file_format) files
+    - Could you tell me if there are any [png](file_format) files?
+    - Could you tell me if there are any [pdf](file_format) files?
+    - Could you tell me if there are any [docx](file_format) files?
+    - Could you tell me if there are any [xlsx](file_format) files?
+    - Could you tell me if there are any [pptx](file_format) files?
+    - Could you tell me if there are any [jpg](file_format) files?
+    - Can you locate any [png](file_format) files?
+    - Can you locate any [pdf](file_format) files?
+    - Can you locate any [docx](file_format) files?
+    - Can you locate any [xlsx](file_format) files?
+    - Can you locate any [pptx](file_format) files?
+    - Can you locate any [jpg](file_format) files?
+
+- intent: greet
+  examples: |
+    - Hello
+    - Hi
+    - Hey there
+
+- intent: provide_name
+  examples: |
+    - My name is [John](provide_name)
+    - You can call me [Sara](provide_name)
+    - I'm [Alex](provide_name)
+
+- intent: thank
+  examples: |
+    - Thank you
+    - Thanks a lot
+    - I appreciate it
+
+- intent: goodbye
+  examples: |
+    - Goodbye
+    - Bye
+    - See you later

@@ -1,0 +1,107 @@
+version: "3.1"
+
+stories:
+
+- story: search for file
+  steps:
+  - intent: find_file
+    entities:
+    - file_name: "report.docx"
+    - folder_name: "sales"
+  - action: action_find_file
+  - slot_was_set:
+    - file_name: "report.docx"
+    - folder_name: "sales"
+  - action: utter_file_found
+
+- story: Ask for file name if not clear
+  steps:
+  - intent: find_file
+  - action: action_find_file
+  - slot_was_set:
+    - file_name: null
+  - action: utter_ask_file_name
+  - intent: provide_file_name
+  - action: action_set_file_name
+  - slot_was_set:
+    - file_name: file_name
+  - action: action_find_file
+
+
+
+- story: file not found
+  steps:
+  - intent: find_file
+    entities:
+    - file_name: "report.docx"
+    - folder_name: "sales"
+  - action: action_find_file
+  - slot_was_set:
+    - file_name: "report.docx"
+    - folder_name: "sales"
+  - action: utter_file_not_found
+
+- story: folder not found
+  steps:
+  - intent: find_file
+    entities:
+    - file_name: "report.docx"
+    - folder_name: "finance"
+  - action: action_find_file
+  - slot_was_set:
+    - file_name: "report.docx"
+    - folder_name: "finance"
+  - action: utter_folder_not_found
+
+- story: search error
+  steps:
+  - intent: find_file
+    entities:
+    - file_name: "report.docx"
+    - folder_name: "sales"
+  - action: action_find_file
+  - slot_was_set:
+    - file_name: "report.docx"
+    - folder_name: "sales"
+  - action: action_handle_error
+  - action: utter_search_error
+
+- story: find_number_of_files_by_format
+  steps:
+  - intent: find_number_of_files_by_format
+    entities:
+    - file_format: "pdf"
+  - slot_was_set:
+    - file_format: "pdf"
+  - action: action_find_number_of_files_by_format
+
+- story: Greet and Get User's Name
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: provide_name
+  - action: utter_acknowledge_name
+
+- story: Thank User for Interaction
+  steps:
+  - intent: thank
+  - action: utter_you_are_welcome
+
+- story: Handle Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Handle Advanced queries
+  steps:
+  - intent: nlu_fallback
+  - action: action_fallback
+
+- story: file related advanced queries
+  steps:
+  - intent: find_file
+  - action: action_find_file
+  - slot_was_set:
+    - file_name: "report.pdf"  # Wildcard to handle all cases when a slot was set
+  - intent: nlu_fallback
+  - action: action_fallback
